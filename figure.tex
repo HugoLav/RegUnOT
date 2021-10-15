@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{figure}
+	\begin{center}
+		\begin{tabular}{cc}
+			
+			\multicolumn{2}{c}{
+				\begin{tikzpicture}[scale = 0.4]
+				\begin{axis}[
+				ylabel={$t=0$},
+				xmin=0, xmax=1,
+				ymin = -0.5, ymax = 10]
+				\addplot[color=blue] table [x=grid, y=rho0]{temporal_boundary.txt};
+				\end{axis}
+				\end{tikzpicture}} \\
+				
+				\multicolumn{2}{c}{Initial measure $\rho_0$} \\
+			
+			\begin{tikzpicture}[scale = 0.7] 
+			\begin{axis}
+			[
+			xmin=0, xmax=1,
+			ymin=0, ymax=1,
+			zmin = 0, zmax = 10,
+			view={60}{30},
+			xlabel={$x$},
+			ylabel={$t$},
+			zlabel={density},
+			]
+			\addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.25, z=rho6]{store_OT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.5, z=rho12]{store_OT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.75, z=rho18]{store_OT.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 1, z=rho1]{temporal_boundary.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 0, z=rho0]{temporal_boundary.txt};
+			\end{axis}
+			\end{tikzpicture} & 
+			
+			\begin{tikzpicture}[scale = 0.7] 
+			\begin{axis}
+			[
+			xmin=0, xmax=1,
+			ymin=0, ymax=1,
+			zmin = 0, zmax = 10,
+			view={60}{30},
+			xlabel={$x$},
+			ylabel={$t$},
+			zlabel={density},
+			]
+			\addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.25, z=rho6]{store_ROT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.5, z=rho12]{store_ROT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.75, z=rho18]{store_ROT.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 1, z=rho1]{temporal_boundary.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 0, z=rho0]{temporal_boundary.txt};
+
+			\end{axis}
+			\end{tikzpicture} \\
+			
+			(a) OT & (b) ROT \\
+			
+			\begin{tikzpicture}[scale = 0.7] 
+			\begin{axis}
+			[
+			xmin=0, xmax=1,
+			ymin=0, ymax=1,
+			zmin = 0, zmax = 10,
+			view={60}{30},
+			xlabel={$x$},
+			ylabel={$t$},
+			zlabel={density},
+			]
+			\addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.25, z=rho6]{store_UOT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.5, z=rho12]{store_UOT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.75, z=rho18]{store_UOT.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 1, z=rho1]{temporal_boundary.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 0, z=rho0]{temporal_boundary.txt};
+
+			\end{axis}
+			\end{tikzpicture} & 
+			
+			\begin{tikzpicture}[scale = 0.7] 
+			\begin{axis}
+			[
+			xmin=0, xmax=1,
+			ymin=0, ymax=1,
+			zmin = 0, zmax = 10,
+			view={60}{30},
+			xlabel={$x$},
+			ylabel={$t$},
+			zlabel={density},
+			]
+			\addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.25, z=rho6]{store_RUOT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.5, z=rho12]{store_RUOT.txt};
+            \addplot3[color=red,line width = 0.7pt] table [x=grid, y expr = 0.75, z=rho18]{store_RUOT.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 1, z=rho1]{temporal_boundary.txt};
+            \addplot3[color=blue,line width = 0.7pt,opacity=0.5] table [x=grid, y expr = 0, z=rho0]{temporal_boundary.txt};
+
+			\end{axis}
+			\end{tikzpicture} \\
+			
+			(c) UOT & (d) RUOT \\
+			
+			\multicolumn{2}{c}{
+				\begin{tikzpicture}[scale = 0.4]
+				\begin{axis}[
+				ylabel={$t=1$},
+				xmin=0, xmax=1,
+				ymin = -0.5, ymax = 10]
+				\addplot[color=blue] table [x=grid, y=rho1]{temporal_boundary.txt};
+				\end{axis}
+				\end{tikzpicture}} \\
+				
+			\multicolumn{2}{c}{Final measure $\rho_1$}
+		\end{tabular}   		
+	\end{center}
+\end{figure}
+
+\end{document}
