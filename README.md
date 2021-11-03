@@ -2,7 +2,7 @@
 
 Code for the article "Entropy minimization with respect to branching Brownian motion is regularized unbalanced optimal transport" by A. Baradat and H. Lavenant
 
-Article available at [PlaceHolder arxiv]. 
+Article available at `https://arxiv.org/abs/2111.01666`. 
 
 Implementation in Julia of the solver for the Regularized Unbalanced Optimal Transport Problem. It reproduces the figure that can be found in the article. The parameters and the boundary conditions are hard-coded in the file `generate_figures.jl`. Commenting relevant lines from 13 to 31 enables to choose to simulate OT, ROT, UOT or RUOT.
 
